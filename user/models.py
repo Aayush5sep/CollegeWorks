@@ -5,13 +5,15 @@ from django.contrib.auth.models import User
 
 class UserDetails(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    fname = models.CharField(max_length=20)
+    lname = models.CharField(max_length=20)
     phone = models.CharField(max_length=10,null=True)
     age = models.IntegerField(null=True)
     about = models.TextField(max_length=100,null=True,blank=True)
     student = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.user
+        return self.user.username
 
 YEARS=[('First',1),('Second',2),('Third',3),('Fourth',4),('Fifth',5),('Sixth',6)]
 
@@ -24,4 +26,4 @@ class StudentDetails(models.Model):
     exp = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.user
+        return self.user.username
