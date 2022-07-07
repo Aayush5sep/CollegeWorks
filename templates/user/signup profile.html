@@ -30,6 +30,9 @@
             </div>
         </div>
     </nav>
+    {% if user.is_authenticated %}
+    <h2 class="fw-bold">You Are Already Logged In </h2>
+    {% else %}
     <section class="py-5 mt-5">
         <div class="container py-5">
             <div class="row mb-4 mb-lg-5">
@@ -109,6 +112,7 @@
             </div>
         </div>
     </footer>
+    {% endif %}
     <script src="{% static 'assets2/js/jquery.min.js' %}"></script>
     <script src="{% static 'assets2/bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
