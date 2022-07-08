@@ -7,8 +7,8 @@ class UserDetails(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     fname = models.CharField(max_length=20)
     lname = models.CharField(max_length=20)
-    phone = models.CharField(max_length=10,null=True)
-    age = models.IntegerField(null=True)
+    phone = models.CharField(max_length=10,null=True,blank=True)
+    age = models.IntegerField(null=True,blank=True)
     about = models.TextField(max_length=100,null=True,blank=True)
     student = models.BooleanField(default=False)
 
