@@ -26,7 +26,7 @@
                     <li class="nav-item"><a class="nav-link" href="#">Discuss</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Homework</a></li>
                 </ul>
-                {% if user.is_authenticated %}<a class="btn btn-primary shadow" role="button" href="/user/logout">Log Out</a>{% else %}<a class="btn btn-primary shadow" role="button" href="/user/loginpage">Log In</a>{% endif %}
+                {% if user.is_authenticated %}<a class="navbar-brand d-flex align-items-center" href="/profile"><img src="{% static 'usericon.png' %}" width="40" height="40"></a><a class="btn btn-primary shadow" role="button" href="/user/logout">Log Out</a>{% else %}<a class="btn btn-primary shadow" role="button" href="/user/loginpage">Log In</a>{% endif %}
             </div>
         </div>
     </nav>
@@ -34,18 +34,18 @@
         <div class="container pt-5 pt-xl-5">
             <div class="row pt-5">
                 <div class="col-12 text-center d-lg-flex justify-content-center align-items-center align-content-center">
-                    <h1 class="display-4 text-uppercase fw-bolder text-center text-success border rounded-0 shadow-sm">Collegeworks</h1>
+                    <h1 class="display-4 text-uppercase fw-bolder text-center text-success">Collegeworks</h1>
                 </div>
                 <div class="col-md-8 col-xl-6 text-center text-md-start mx-auto">
                     <div class="text-center">
-                        <h1 class="fs-2 fw-normal text-info">The All-In-One place for College Students</h1>
+                        <h1 class="fs-2 fw-normal text-info">One Stop place for Students</h1>
                     </div>
                 </div>
                 <div class="col-12 col-lg-10 mx-auto">
                     <div class="position-relative" style="display: flex;flex-wrap: wrap;justify-content: flex-end;">
-                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-15%, 35%, 0);"><img class="img-thumbnail img-fluid" src="{% static 'assets2/img/products/ccbc41ae14beab3535ce6da7d2e42124.jpg' %}" data-bss-parallax="" data-bss-parallax-speed="0.8"></div>
-                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-5%, 20%, 0);"><img class="img-thumbnail img-fluid" src="{% static 'assets2/img/products/photo-1541963463532-d68292c34b19.jpg' %}" data-bss-parallax="" data-bss-parallax-speed="0.4"></div>
-                        <div style="position: relative;flex: 0 0 60%;transform: translate3d(0, 0%, 0);"><img class="img-thumbnail img-fluid" src="{% static 'assets2/img/products/8bdf33193993929728e0fb29e106f1f0.jpg' %}" data-bss-parallax="" data-bss-parallax-speed="0.25" loading="lazy"></div>
+                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-15%, 20%, 0);"><img class="img-thumbnail img-fluid" src="{% static 'assets2/img/products/ccbc41ae14beab3535ce6da7d2e42124.jpg' %}" data-bss-parallax="" data-bss-parallax-speed="0.8"></div>
+                        <div style="position: relative;flex: 0 0 45%;transform: translate3d(-5%, 5%, 0);"><img class="img-thumbnail img-fluid" src="{% static 'assets2/img/products/photo-1541963463532-d68292c34b19.jpg' %}" data-bss-parallax="" data-bss-parallax-speed="0.4"></div>
+                        <div style="position: relative;flex: 0 0 60%;transform: translate3d(0, -30%, 0);"><img class="img-thumbnail img-fluid" src="{% static 'assets2/img/products/8bdf33193993929728e0fb29e106f1f0.jpg' %}" data-bss-parallax="" data-bss-parallax-speed="0.25" loading="lazy"></div>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div>
-        <div class="container bg-primary-gradient py-5">
+        <div class="container bg-primary-gradient py-5" id="team-details">
             <div class="row mb-4 mb-lg-5">
                 <div class="col-md-8 col-xl-6 text-center mx-auto">
                     <p class="fw-bold text-primary mb-2">Our Developer Team</p>
@@ -175,8 +175,8 @@
                 <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
                     <h3 class="fs-6 fw-bold">About</h3>
                     <ul class="list-unstyled">
-                        <li><a href="/">Team</a></li>
-                        <li><a href="/">Developer</a></li>
+                        <li><a href="/#team-details">Team</a></li>
+                        <li><a href="/#team-details">Developer</a></li>
                         <li></li>
                     </ul>
                 </div>

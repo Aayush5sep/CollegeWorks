@@ -51,23 +51,38 @@
                     <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
                 </ol>
             </div>
-            <section class="photo-gallery py-4 py-xl-5">
+            <section class="photo-gallery py-4 py-xl-5" id="initial-categories">
                 <div class="container">
                     <div class="row mb-5">
                         <div class="col-md-8 col-xl-6 text-center mx-auto">
                             <h2 class="text-capitalize fs-2 fw-normal text-center text-primary">Top Categories</h2>
                         </div>
                     </div>
-                    <div class="row gx-2 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-3 photos" data-bss-baguettebox="">
-                        <div class="col item"><a href="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"><img class="img-fluid" src="{% static 'assets2/img/products/physics.jpg' %}"></a></div>
-                        <div class="col item"><a href="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"><img class="img-fluid" src="{% static 'assets2/img/products/chemistry.jpg' %}"></a></div>
-                        <div class="col item"><a href="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"><img class="img-fluid" src="{% static 'assets2/img/products/maths.jpg' %}"></a></div>
-                        <div class="col item"><a href="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"><img class="img-fluid" src="{% static 'assets2/img/products/courses.jpg' %}"></a></div>
+                    <div class="row gx-2 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-2 photos" data-bss-baguettebox="">
+                        <div class="col item"><h2 class="text-capitalize fs-2 fw-normal text-center text-secondary">Physics</h2><a href="/books/category/physics"><img class="img-fluid" src="{% static 'assets2/img/products/physics.jpg' %}"></a></div>
+                        <div class="col item"><h2 class="text-capitalize fs-2 fw-normal text-center text-secondary">Chemistry</h2><a href="/books/category/chemistry"><img class="img-fluid" src="{% static 'assets2/img/products/chemistry.jpg' %}"></a></div>
+                        <div class="col item"><h2 class="text-capitalize fs-2 fw-normal text-center text-secondary">Mathematics</h2><a href="/books/category/maths"><img class="img-fluid" src="{% static 'assets2/img/products/maths.jpg' %}"></a></div>
+                        <div class="col item"><h2 class="text-capitalize fs-2 fw-normal text-center text-secondary">Courses</h2><a href="/books/category/courses"><img class="img-fluid" src="{% static 'assets2/img/products/courses.jpg' %}"></a></div>
                     </div>
                     <div class="col-md-12 mt-2">
                         <div class="row text-center">
-                            <div class="col-md-12"><button class="btn btn-primary" type="button">View All Categories</button></div>
+                            <div class="col-md-12"><button class="btn btn-primary" type="button" id="catbtn">View All Categories</button></div>
                         </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-4 py-xl-5" id="final-categories" style="display:none;">
+                <div class="container">
+                    <div class="row mb-5">
+                        <div class="col-md-8 col-xl-6 text-center mx-auto">
+                            <h2 class="text-capitalize fs-2 fw-normal text-center text-primary">All Categories</h2>
+                        </div>
+                    </div>
+                    <div class="row gx-3 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-4">
+                        <div class="col item"><a href="/books/category/physics"><h2 class="text-capitalize fs-2 fw-normal text-center text-info shadow p-3 mb-5 bg-body rounded">Physics</h2></a></div>
+                        <div class="col item"><a href="/books/category/chemistry"><h2 class="text-capitalize fs-2 fw-normal text-center text-info shadow p-3 mb-5 bg-body rounded">Chemistry</h2></a></div>
+                        <div class="col item"><a href="/books/category/maths"><h2 class="text-capitalize fs-2 fw-normal text-center text-info shadow p-3 mb-5 bg-body rounded">Mathematics</h2></a></div>
+                        <div class="col item"><a href="/books/category/courses"><h2 class="text-capitalize fs-2 fw-normal text-center text-info shadow p-3 mb-5 bg-body rounded">Courses</h2></a></div>
                     </div>
                 </div>
             </section>
@@ -87,8 +102,8 @@
                 <div class="col-sm-4 col-md-3 text-center text-lg-start d-flex flex-column item">
                     <h3 class="fs-6 fw-bold">About</h3>
                     <ul class="list-unstyled">
-                        <li><a href="/">Team</a></li>
-                        <li><a href="/">Developer</a></li>
+                        <li><a href="/#team-details">Team</a></li>
+                        <li><a href="/#team-details">Developer</a></li>
                         <li></li>
                     </ul>
                 </div>
@@ -130,6 +145,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
     <script src="{% static 'assets2/js/bold-and-bright.js' %}"></script>
     <script src="{% static 'assets2/js/Lightbox-Gallery.js' %}"></script>
+    <script src="{% static 'books/resources.js' %}"></script>
 </body>
 
 </html>
