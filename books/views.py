@@ -2,17 +2,25 @@ from django.shortcuts import render
 # from django.http import HttpResponse, JsonResponse
 from rest_framework.response import Response
 # from rest_framework.parsers import JSONParser
-from books.models import Books
+from books.models import Books,Subjects
 # from rest_framework.decorators import api_view
 # from django.views.decorators.csrf import csrf_exempt
 from books.serializers import BookSerializer
 from rest_framework.views import APIView
-from rest_framework import status
+# from rest_framework import status
 
 # Create your views here.
 
 def homepage(request):
-    return render(request,'books/resources.html')
+    subjects=Subjects.objects.all()
+    first=subjects.filter(year="First").order_by('branch_subject')
+    second=subjects.filter(year="Second").order_by('branch_subject')
+    third=subjects.filter(year="Third").order_by('branch_subject')
+    fourth=subjects.filter(year="Fourth").order_by('branch_subject')
+    fifth=subjects.filter(year="Fifth").order_by('branch_subject')
+    sixth=subjects.filter(year="Sixth").order_by('branch_subject')
+    params={'first':first,'second':second,'third':third,'fourth':fourth,'fifth':fifth,'sixth':sixth}
+    return render(request,'books/resources.html',params)
 
 class BookList(APIView):
     def get(self, request):
