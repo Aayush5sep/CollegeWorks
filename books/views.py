@@ -20,7 +20,7 @@ def homepage(request):
     fifth=subjects.filter(year="Fifth").order_by('branch_subject')
     sixth=subjects.filter(year="Sixth").order_by('branch_subject')
     params={'first':first,'second':second,'third':third,'fourth':fourth,'fifth':fifth,'sixth':sixth}
-    return render(request,'books/resources.html',params)
+    return render(request,'books/collectionhome.html',params)
 
 # Books,Subjects,Notes,Exams,Experiments,Assignments,Projects
 def resources(request,subject):
@@ -28,7 +28,8 @@ def resources(request,subject):
     notes = Notes.objects.filter(branch_subject=subject).order_by('topic')
     exams = Exams.objects.filter(branch_subject=subject).order_by('topic')
     experiments = Experiments.objects.filter(branch_subject=subject).order_by('topic')
-    params={'books':books}
+    assignments=Assignments.objects.filter(branch_subject=subject).order_by('topic')
+    params={'books':books,'notes':notes,'exams':exams,'experiments':experiments,'assignments':assignments}
     return render(request,'books/subject.html',params)
 
 class BookList(APIView):
@@ -71,4 +72,4 @@ class BookList(APIView):
 #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def temp(request):
-    return render(request,'books/netflix.html')
+    return render(request,'books/subject.html')
