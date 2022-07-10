@@ -2,7 +2,7 @@ from django.shortcuts import render
 # from django.http import HttpResponse, JsonResponse
 from rest_framework.response import Response
 # from rest_framework.parsers import JSONParser
-from books.models import Books,Subjects
+from books.models import Books,Subjects,Notes,Exams,Experiments,Assignments,Projects
 # from rest_framework.decorators import api_view
 # from django.views.decorators.csrf import csrf_exempt
 from books.serializers import BookSerializer
@@ -21,6 +21,15 @@ def homepage(request):
     sixth=subjects.filter(year="Sixth").order_by('branch_subject')
     params={'first':first,'second':second,'third':third,'fourth':fourth,'fifth':fifth,'sixth':sixth}
     return render(request,'books/resources.html',params)
+
+# Books,Subjects,Notes,Exams,Experiments,Assignments,Projects
+def resources(request,subject):
+    books = Books.objects.filter(branch_subject=subject).order_by('title')
+    notes = Notes.objects.filter(branch_subject=subject).order_by('topic')
+    exams = Exams.objects.filter(branch_subject=subject).order_by('topic')
+    experiments = Experiments.objects.filter(branch_subject=subject).order_by('topic')
+    params={'books':books}
+    return render(request,'books/subject.html',params)
 
 class BookList(APIView):
     def get(self, request):
@@ -60,3 +69,6 @@ class BookList(APIView):
 #     if serializer.is_valid():
 #         return Response(serializer.data)
 #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+def temp(request):
+    return render(request,'books/netflix.html')

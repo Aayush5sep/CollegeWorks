@@ -16,10 +16,8 @@ class Books(models.Model):
     author = models.CharField(max_length=100, default='')
     branch_subject = models.ForeignKey(Subjects,on_delete=models.CASCADE)
     specific_subject = models.CharField(max_length=50, null=False)
-    year = models.CharField(max_length=10,choices=YEARS,default='First')
     link = models.URLField(max_length=200)
-    updated = models.DateTimeField(auto_now_add=True)
-    relevancy = models.FloatField(default=0)
+    important=models.BooleanField(default=False)
     # img = models.ImageField()
 
     def __str__(self):
@@ -33,6 +31,7 @@ class Notes(models.Model):
     branch_subject = models.ForeignKey(Subjects,on_delete=models.CASCADE)
     specific_subject = models.CharField(max_length=50, null=False)
     link = models.URLField(max_length=200)
+    important=models.BooleanField(default=False)
 
     def __str__(self):
         return self.topic
@@ -43,6 +42,7 @@ class Assignments(models.Model):
     branch_subject = models.ForeignKey(Subjects,on_delete=models.CASCADE)
     specific_subject = models.CharField(max_length=50, null=False)
     link = models.URLField(max_length=200)
+    important=models.BooleanField(default=False)
 
     def __str__(self):
         return self.topic
@@ -53,6 +53,7 @@ class Projects(models.Model):
     branch_subject = models.ForeignKey(Subjects,on_delete=models.CASCADE)
     specific_subject = models.CharField(max_length=50, null=False)
     link = models.URLField(max_length=200)
+    important=models.BooleanField(default=False)
 
     def __str__(self):
         return self.topic
@@ -63,6 +64,7 @@ class Exams(models.Model):
     branch_subject = models.ForeignKey(Subjects,on_delete=models.CASCADE)
     specific_subject = models.CharField(max_length=50, null=False)
     link = models.URLField(max_length=200)
+    important=models.BooleanField(default=False)
 
     def __str__(self):
         return self.topic
@@ -73,6 +75,7 @@ class Experiments(models.Model):
     branch_subject = models.ForeignKey(Subjects,on_delete=models.CASCADE)
     specific_subject = models.CharField(max_length=50, null=False)
     link = models.URLField(max_length=200)
+    important=models.BooleanField(default=False)
 
     def __str__(self):
         return self.topic

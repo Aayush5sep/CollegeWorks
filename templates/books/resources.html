@@ -41,10 +41,10 @@
             <section class="photo-gallery py-4 py-xl-5" id="initial-categories">
                 <div class="container">
                     <div class="row gx-2 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-2 photos" data-bss-baguettebox="">
-                        <div class="col item"><a href="/books/category/physics"><img class="img-fluid" src="{% static 'assets2/img/products/physics.jpg' %}"></a></div>
-                        <div class="col item"><a href="/books/category/chemistry"><img class="img-fluid" src="{% static 'assets2/img/products/chemistry.jpg' %}"></a></div>
-                        <div class="col item"><a href="/books/category/maths"><img class="img-fluid" src="{% static 'assets2/img/products/maths.jpg' %}"></a></div>
-                        <div class="col item"><a href="/books/category/courses"><img class="img-fluid" src="{% static 'assets2/img/products/courses.jpg' %}"></a></div>
+                        <div class="col item"><img class="img-fluid" src="{% static 'assets2/img/products/physics.jpg' %}"></div>
+                        <div class="col item"><img class="img-fluid" src="{% static 'assets2/img/products/chemistry.jpg' %}"></div>
+                        <div class="col item"><img class="img-fluid" src="{% static 'assets2/img/products/maths.jpg' %}"></div>
+                        <div class="col item"><img class="img-fluid" src="{% static 'assets2/img/products/courses.jpg' %}"></div>
                     </div>
                 </div>
             </section>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="row gx-3 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-4 shadow-sm p-3 mb-5 bg-white rounded border">
                         {% for subject in first %}
-                        <div class="col item"><a href="/books/category/{{subject}}"><h4 class="text-capitalize text-center text-info shadow-sm p-3 mb-5 bg-body rounded">{{subject}}</h4></a></div>
+                        <div class="col item"><a href="/books/category/{{subject.id}}"><h4 class="text-capitalize text-center text-info shadow-sm p-3 mb-5 bg-body rounded">{{subject}}</h4></a></div>
                         {% endfor %}
                     </div>
                     {% endif %}
@@ -71,7 +71,7 @@
                     </div>
                     <div class="row gx-3 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-4 shadow-sm p-3 mb-5 bg-white rounded border">
                         {% for subject in second %}
-                        <div class="col item"><a href="/books/category/{{subject}}"><h4 class="text-capitalize text-center text-info shadow-sm p-3 mb-5 bg-body rounded">{{subject}}</h4></a></div>
+                        <div class="col item"><a href="/books/category/{{subject.id}}"><h4 class="text-capitalize text-center text-info shadow-sm p-3 mb-5 bg-body rounded">{{subject}}</h4></a></div>
                         {% endfor %}
                     </div>
                     {% endif %}
@@ -81,7 +81,7 @@
                     </div>
                     <div class="row gx-3 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-4 shadow-sm p-3 mb-5 bg-white rounded border">
                         {% for subject in third %}
-                        <div class="col item"><a href="/books/category/{{subject}}"><h4 class="text-capitalize text-center text-info shadow-sm p-3 mb-5 bg-body rounded">{{subject}}</h4></a></div>
+                        <div class="col item"><a href="/books/category/{{subject.id}}"><h4 class="text-capitalize text-center text-info shadow-sm p-3 mb-5 bg-body rounded">{{subject}}</h4></a></div>
                         {% endfor %}
                     </div>
                     {% endif %}
@@ -91,7 +91,7 @@
                     </div>
                     <div class="row gx-3 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-4 shadow-sm p-3 mb-5 bg-white rounded border">
                         {% for subject in fourth %}
-                        <div class="col item"><a href="/books/category/{{subject}}"><h4 class="text-capitalize text-center text-info shadow-sm p-3 mb-5 bg-body rounded">{{subject}}</h4></a></div>
+                        <div class="col item"><a href="/books/category/{{subject.id}}"><h4 class="text-capitalize text-center text-info shadow-sm p-3 mb-5 bg-body rounded">{{subject}}</h4></a></div>
                         {% endfor %}
                     </div>
                     {% endif %}
@@ -101,7 +101,7 @@
                     </div>
                     <div class="row gx-3 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-4 shadow-sm p-3 mb-5 bg-white rounded border">
                         {% for subject in fifth %}
-                        <div class="col item"><a href="/books/category/{{subject}}"><h4 class="text-capitalize text-center text-info shadow-sm p-3 mb-5 bg-body rounded">{{subject}}</h4></a></div>
+                        <div class="col item"><a href="/books/category/{{subject.id}}"><h4 class="text-capitalize text-center text-info shadow-sm p-3 mb-5 bg-body rounded">{{subject}}</h4></a></div>
                         {% endfor %}
                     </div>
                     {% endif %}
@@ -111,7 +111,7 @@
                     </div>
                     <div class="row gx-3 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-4 shadow-sm p-3 mb-5 bg-white rounded border">
                         {% for subject in sixth %}
-                        <div class="col item"><a href="/books/category/{{subject}}"><h4 class="text-capitalize text-center text-info shadow-sm p-3 mb-5 bg-body rounded">{{subject}}</h4></a></div>
+                        <div class="col item"><a href="/books/category/{{subject.id}}"><h4 class="text-capitalize text-center text-info shadow-sm p-3 mb-5 bg-body rounded">{{subject}}</h4></a></div>
                         {% endfor %}
                     </div>
                     {% endif %}
