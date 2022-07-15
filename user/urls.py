@@ -9,4 +9,7 @@ urlpatterns = [
     path('logout/',views.logoutuser),
     path('profileupdate/',views.profileupdate),
     path('temp/',views.temp),
+    path('nameupd/',views.nameupd),
+    path('contactupd/',views.contactupd),
+    path('studentupd/',views.studentupd),
 ]

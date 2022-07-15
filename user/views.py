@@ -61,6 +61,53 @@ def profileupdate(request):
     messages.success(request,'Profile Updated')
     return redirect("/")
 
+def nameupd(request):
+    if request.method=='POST':
+        user = request.user
+        fname=request.POST['first_name']
+        lname=request.POST['last_name']
+        about=request.POST['about']
+        profiled = UserDetails.objects.get(user=user)
+        profiled.about = about
+        profiled.fname=fname
+        profiled.lname=lname
+        profiled.save()
+        messages.success(request,'Profile Updated')
+    else:
+        messages.error(request,'Insecure Request')
+    return redirect("/profile/")
+
+def contactupd(request):
+    if request.method=='POST':
+        user = request.user
+        email=request.POST['email']
+        phone=request.POST['phone']
+        profiled = UserDetails.objects.get(user=user)
+        profiled.phone=phone
+        profiled.save()
+        user.email = email
+        user.save()
+        messages.success(request,'Contact Updated')
+    else:
+        messages.error(request,'Insecure Request')
+    return redirect("/profile/")
+
+def studentupd(request):
+    if request.method=='POST':
+        user = request.user
+        is_student=request.POST.get('is_student')
+        student = False
+        if is_student is not None:
+            student=True
+        profiled = UserDetails.objects.get(user=user)
+        profiled.student=student
+        profiled.save()
+        messages.success(request,'Student Status Updated')
+    else:
+        messages.error(request,'Insecure Request')
+    return redirect("/profile/")
+
+
 def loginuser(request):
     if request.method=='POST':
         login_username=request.POST['username']

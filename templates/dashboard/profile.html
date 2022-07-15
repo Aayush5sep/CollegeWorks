@@ -146,10 +146,10 @@
                                             <p class="text-primary m-0 fw-bold">User Settings</p>
                                         </div>
                                         <div class="card-body">
-                                            <form>
+                                            <form method="post" action="/user/nameupd/">{% csrf_token %}
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="username"><strong>Username</strong></label><input class="form-control" type="text" id="username" placeholder="user.name" name="username" value="{{request.user.username}}"></div>
+                                                        <div class="mb-3"><label class="form-label" for="username"><strong>Username</strong></label><input class="form-control" type="text" id="username" placeholder="user.name" name="username" value="{{request.user.username}}" readonly></div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -174,7 +174,7 @@
                                             <p class="text-primary m-0 fw-bold">Contact Settings</p>
                                         </div>
                                         <div class="card-body">
-                                            <form>
+                                            <form method="post" action="/user/contactupd/"> {% csrf_token %}
                                                 <div class="mb-3"><label class="form-label" for="address"><strong>Email</strong></label><input class="form-control" type="text" id="address" placeholder="info@example.com" name="email" value="{{request.user.email}}"></div>
                                                 <div class="row">
                                                     <div class="col">
@@ -192,12 +192,12 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <form>
+                                                    <form method="post" action="/user/studentupd/"> {% csrf_token %}
                                                         <div class="mb-3">
                                                             {% if userd.student == True %}
-                                                            <div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="formCheck-1" checked><label class="form-check-label" for="student"><strong>Are You A Student ?</strong></label></div>
+                                                            <div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="formCheck-1" name="is_student" checked><label class="form-check-label" for="student"><strong>Are You A Student ?</strong></label></div>
                                                             {% else %}
-                                                            <div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="student"><strong>Are You A Student ?</strong></label></div>
+                                                            <div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="formCheck-1" name="is_student"><label class="form-check-label" for="student"><strong>Are You A Student ?</strong></label></div>
                                                             {% endif %}
                                                         </div>
                                                         <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Save Settings</button></div>
