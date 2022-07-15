@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 # from django.http import HttpResponse, JsonResponse
 from rest_framework.response import Response
 # from rest_framework.parsers import JSONParser
@@ -7,6 +7,8 @@ from books.models import Books,Subjects,Notes,Exams,Experiments,Assignments,Proj
 # from django.views.decorators.csrf import csrf_exempt
 from books.serializers import BookSerializer
 from rest_framework.views import APIView
+from django.contrib import messages
+from django.contrib.admin.views.decorators import staff_member_required
 # from rest_framework import status
 
 # Create your views here.
@@ -29,8 +31,39 @@ def resources(request,subject):
     exams = Exams.objects.filter(branch_subject=subject).order_by('topic')
     experiments = Experiments.objects.filter(branch_subject=subject).order_by('topic')
     assignments=Assignments.objects.filter(branch_subject=subject).order_by('topic')
-    params={'books':books,'notes':notes,'exams':exams,'experiments':experiments,'assignments':assignments}
+    projects=Projects.objects.filter(branch_subject=subject).order_by('topic')
+    params={'books':books,'notes':notes,'exams':exams,'experiments':experiments,'assignments':assignments,'projects':projects}
     return render(request,'books/subject.html',params)
+
+def respage(request):
+    subjects=Subjects.objects.all()
+    return render(request,'books/addresource.html',{'subjects':subjects})
+
+@staff_member_required
+def addnew(request):
+    if request.method=='POST':
+        cat=request.POST['category']
+        topic=request.POST['topic']
+        author=request.POST['author']
+        branch_id=request.POST['branch_subject']
+        branch_subject=Subjects.objects.get(id=branch_id)
+        specific_subject=request.POST['specific_subject']
+        link=request.POST['link']
+        if cat=="bk":
+            res=Books(title=topic,author=author,branch_subject=branch_subject,specific_subject=specific_subject,link=link)
+        elif cat=="nt":
+            res=Notes(topic=topic,author=author,branch_subject=branch_subject,specific_subject=specific_subject,link=link)
+        elif cat=="assg":
+            res=Assignments(topic=topic,author=author,branch_subject=branch_subject,specific_subject=specific_subject,link=link)
+        elif cat=="exm":
+            res=Exams(topic=topic,author=author,branch_subject=branch_subject,specific_subject=specific_subject,link=link)
+        elif cat=="exp":
+            res=Experiments(topic=topic,author=author,branch_subject=branch_subject,specific_subject=specific_subject,link=link)
+        elif cat=="prj":
+            res=Projects(topic=topic,author=author,branch_subject=branch_subject,specific_subject=specific_subject,link=link)
+    res.save()
+    messages.success(request,"Resource Added Successfully")
+    return redirect('/')
 
 class BookList(APIView):
     def get(self, request):
