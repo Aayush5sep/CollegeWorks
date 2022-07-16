@@ -32,6 +32,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'books.apps.BooksConfig',
+    'user.apps.UserConfig',
+    'discuss.apps.DiscussConfig',
+    'works.apps.WorksConfig',
+    'dashboard.apps.DashboardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,11 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'books',
-    'user',
-    'discuss',
-    'works',
-    'dashboard',
 ]
 
 MIDDLEWARE = [
