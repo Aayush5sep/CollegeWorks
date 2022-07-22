@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -9,7 +10,7 @@ class Doubt(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE)
     votes = models.IntegerField(default=0)
     time = models.DateTimeField(auto_now_add=True)
-    # img = models.ImageField()
+    img = models.ImageField(upload_to='doubts/',null=True)
 
     def __str__(self):
         return self.title
@@ -21,7 +22,7 @@ class Discussions(models.Model):
     votes = models.IntegerField(default=0)
     verified = models.BooleanField(default=False)
     time = models.DateTimeField(auto_now_add=True)
-    # img = models.ImageField()
+    img = models.ImageField(upload_to='doubts/',null=True)
 
     def __str__(self):
         return self.post
