@@ -36,21 +36,23 @@
         <div class="container rounded" style="padding-left: 2px; padding-right: 2px; padding-top: 15px; padding-bottom: 15px;">
             <div class="row text-start">
                 <div class="col text-start" style="margin: 0px;margin-right: 0px;margin-left: 20px;">
-                    <h3 class="fw-bolder text-muted">Question Title</h3>
-                    <p class="text-black fw-bolder"><span class="fw-bold">Q - </span>Get Everything from Books to Assignments to PYQs to Courses &amp; Links</p>
+                    <h3 class="fw-bolder text-muted">{{qn.title}}</h3>
+                    <p class="text-black fw-bolder"><span class="fw-bold">Q - </span>{{qn.question}}</p>
                 </div>
             </div>
         </div>
     </section>
     <section class="mt-2 solutions">
-        <div class="container rounded" style="padding-left: 2px; padding-right: 2px; padding-top: 15px; padding-bottom: 15px; background-color: #FFFAFA;">
+        {% for soln in dcns %}
+        <div class="container rounded mt-4" style="padding-left: 2px; padding-right: 2px; padding-top: 15px; padding-bottom: 15px; background-color: #FFFAFA;">
             <div class="row text-start">
                 <div class="col text-start" style="margin: 0px;margin-right: 0px;margin-left: 20px;">
-                    <p class="text-black fw-normal"><span class="fw-bold">Solution : </span><br>Get Everything from Books to Assignments to PYQs to Courses &amp; Links
-                    <br><span class="author">Asked By&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Asked On</span></p>
+                    <p class="text-black fw-normal"><span class="fw-bold">Solution : </span><br>{{soln.text}}
+                    <br><span class="author">Answered By {{soln.author}}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Answered On {{soln.time}}</span></p>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </section>
     <footer class="bg-primary-gradient mt-5">
         <div class="container py-4 py-lg-5">
