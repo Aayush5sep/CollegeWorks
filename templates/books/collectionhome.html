@@ -23,10 +23,10 @@
                             <li class="nav-item"><a class="nav-link" href="/#our-services">Services</a></li>
                             <li class="nav-item"></li>
                             <li class="nav-item"><a class="nav-link active" href="/books">Resources</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Discuss</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/discuss">Discuss</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Homework</a></li>
                         </ul>
-                        {% if user.is_authenticated %}<a class="btn btn-primary shadow" role="button" href="/user/logout">Log Out</a>{% else %}<a class="btn btn-primary shadow" role="button" href="/user/loginpage">Log In</a>{% endif %}
+                        {% if user.is_authenticated %}<a class="navbar-brand d-flex align-items-center" href="/profile"><img src="{% static 'usericon.png' %}" width="40" height="40"></a><a class="btn btn-primary shadow" role="button" href="/user/logout">Log Out</a>{% else %}<a class="btn btn-primary shadow" role="button" href="/user/loginpage">Log In</a>{% endif %}
                     </div>
         </div>
     </nav>
@@ -126,7 +126,7 @@
                     <h3 class="fs-6 fw-bold">Services</h3>
                     <ul class="list-unstyled">
                         <li><a href="/books">Study Resources</a></li>
-                        <li><a href="#">Doubt Discussion</a></li>
+                        <li><a href="/discuss">Doubt Discussion</a></li>
                         <li><a href="#">Homework Lancing</a></li>
                     </ul>
                 </div>
