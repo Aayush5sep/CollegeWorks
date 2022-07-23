@@ -23,6 +23,7 @@ urlpatterns = [
     path('books/',include('books.urls')),
     path('user/',include('user.urls')),
     path('profile/',include('dashboard.urls')),
+    path('discuss/',include('discuss.urls')),
     path('error/',views.error),
     path('',views.index),
 ]
