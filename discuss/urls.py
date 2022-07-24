@@ -5,4 +5,5 @@ urlpatterns = [
     path('',views.discusshome),
     path('qn/<int:dbtid>',views.doubt),
     path('temp/',views.temp),
+    path('search/',views.search),
 ]
