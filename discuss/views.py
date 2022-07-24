@@ -18,7 +18,6 @@ def search(request):
     mylist=[]
     for dbt in Doubt.objects.all():
         strn=str(dbt.id) + " " + dbt.title.lower() + " " + dbt.question.lower()
-        print(strn)
         mylist.append(strn)
     result = searchlist(mylist,query,4)
     mylist=[]
@@ -26,7 +25,7 @@ def search(request):
         rid = int(res.split()[0])
         dbt = Doubt.objects.get(id=rid)
         mylist.append(dbt)
-    return render(request,'discuss/discusshome.html',{'latest':mylist})
+    return render(request,'discuss/search.html',{'latest':mylist})
     
 
 

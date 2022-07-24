@@ -6,7 +6,6 @@ def searchlist(mylist,query,nmb):
     bm25 = BM25Okapi(tokenized_list)
     tokenized_query = query.split(" ")
     doc_scores = bm25.get_scores(tokenized_query)
-    print(doc_scores)
     doc = bm25.get_top_n(tokenized_query, mylist, n=nmb)
     # corpus = ["Hello there good man!","It is quite windy in London","How is the weather today?"]
     # tokenized_corpus = [doc.split(" ") for doc in corpus]
