@@ -26,4 +26,6 @@ urlpatterns = [
     path('discuss/',include('discuss.urls')),
     path('error/',views.error),
     path('',views.index),
+    path('contactmsg/',views.msg),
+    path('allmsg',views.allmsg),
 ]
