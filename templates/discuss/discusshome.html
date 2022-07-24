@@ -39,9 +39,9 @@
                     <div class="text-center" style="margin-bottom: 50px;width: 651px;">
                         <h1 class="fs-2 fw-normal text-info" style="width: 649px;">Discuss your Doubts with others and <br>find the best solution possible !!</h1>
                     </div>
-                    <form>
+                    <form action="/discuss/search/" method="get">{% csrf_token %}
                         <div class="row" style="margin-left:40px; margin-bottom:20px;">
-                            <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control" type="email" placeholder="Enter Your Question" name="search" style="height: 50px;">
+                            <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control" type="text" placeholder="Enter Your Question" name="search" style="height: 50px;">
                             </div>
                             <div class="col-auto col-md-3"><button class="btn btn-primary" type="submit" style="height: 50px;">Search</button></div>
                         </div>
