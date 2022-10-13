@@ -29,3 +29,5 @@ urlpatterns = [
     path('contactmsg/',views.msg),
     path('allmsg',views.allmsg),
 ]
+
+handler404 = 'collegework.views.error_404_view'

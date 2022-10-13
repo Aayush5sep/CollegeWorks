@@ -1,5 +1,7 @@
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .models import ContactUs
+from django.conf import settings
 
 def error(request):
     return render(request,'error.html')
@@ -16,5 +18,10 @@ def msg(request):
     return redirect('/')
 
 def allmsg(request):
-    msgs = ContactUs.objects.all()
-    return render(request,'allmsg.html',{'msgs':msgs})
+    if request.user.is_staff:
+        msgs = ContactUs.objects.all()
+        return render(request,'allmsg.html',{'msgs':msgs})
+    return HttpResponse("You are not allowed to view this page")
+
+def error_404_view(request, exception):
+    return render(request, 'error.html')

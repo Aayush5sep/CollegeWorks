@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 django = "*"
 djangorestframework = "*"
+pillow = "*"
+bm25 = "*"
+rank-bm25 = "*"
 
 [dev-packages]
 

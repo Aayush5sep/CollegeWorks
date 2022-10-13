@@ -65,7 +65,7 @@
                 <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
                     <div>
                         <h5 class="fw-bold">Find The Best Study Resources</h5>
-                        <p class="text-muted mb-4">Get the collection of everything from Books to Notes to Course Links and Previous Year Papers.</p><button class="btn btn-primary shadow" type="button">See Collection</button>
+                        <p class="text-muted mb-4">Get the collection of everything from Books to Notes to Course Links and Previous Year Papers.</p><a href="/books/"><button class="btn btn-primary shadow" type="button">See Collection</button></a>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                 <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
                     <div>
                         <h5 class="fw-bold">Discuss Your Doubts</h5>
-                        <p class="text-muted mb-4">Not understanding something? Discuss with others and find the best possible solutions.</p><button class="btn btn-primary shadow" type="button">Discuss Now</button>
+                        <p class="text-muted mb-4">Not understanding something? Discuss with others and find the best possible solutions.</p><a href="/discuss/"><button class="btn btn-primary shadow" type="button">Discuss Now</button></a>
                     </div>
                 </div>
             </div>
@@ -128,10 +128,10 @@
             <div class="row d-flex justify-content-center">
                 <div class="col-md-6 col-xl-4">
                     <div>
-                        <form class="p-3 p-xl-4" method="post">
+                        <form class="p-3 p-xl-4" method="post" action="/contactmsg/">{% csrf_token %}
                             <div class="mb-3"><input class="form-control" type="text" id="name-1" name="name" placeholder="Name"></div>
                             <div class="mb-3"><input class="form-control" type="email" id="email-1" name="email" placeholder="Email"></div>
-                            <div class="mb-3"><textarea class="form-control" id="message-1" name="message" rows="6" placeholder="Message"></textarea></div>
+                            <div class="mb-3"><textarea class="form-control" id="message-1" name="msg" rows="6" placeholder="Message"></textarea></div>
                             <div><button class="btn btn-primary shadow d-block w-100" type="submit">Send </button></div>
                         </form>
                     </div>
